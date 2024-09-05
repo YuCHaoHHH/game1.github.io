@@ -33,7 +33,9 @@
     <script>
         // 用來偵測是否已經訪問過此頁面
         window.onload = function() {
-            if (localStorage.getItem("pageVisited")) {
+            // 使用不同的 key 來區分不同的頁面
+            var pageKey = window.location.pathname; // 取得當前頁面的路徑作為 key
+            if (localStorage.getItem(pageKey + "_visited")) {
                 // 如果已經造訪過，顯示頁面無法再進入的訊息
                 document.body.innerHTML = "<h1>領過獎了不能再領囉！</h1>";
             }
@@ -41,10 +43,12 @@
 
         // 點擊 GIF 後進行跳轉，並將頁面標記為已訪問
         function redirectAndClose() {
+            // 使用當前頁面的路徑作為 key 來標記訪問狀態
+            var pageKey = window.location.pathname;
             // 設置已經訪問的標記
-            localStorage.setItem("pageVisited", "true");
+            localStorage.setItem(pageKey + "_visited", "true");
             // 跳轉到指定 URL
-            window.location.replace("https://u.lin.ee/VEkWvFH");
+            window.location.replace("https://u.lin.ee/j6jJ39C");
         }
     </script>
 </head>
